@@ -1,0 +1,80 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-block">
+
+      <div class="container-fluid">
+        <div class="jumbotron hero text-right">
+          <div class="flag">JIRA @WORK!</div>
+        </div>
+      </div>
+      <div class="container" *ngIf="!project">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12 text-center">
+              <div class="media">
+                <i class="fa fa-arrow-left fa-5x d-flex mr-3 mt-2"></i>
+                <div class="media-body fa-5x" style="margin-top: -10px;">
+                  Pick a Project
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" *ngIf="token && data && project">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">{{project.name}} <small>({{project.key}})</small></h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <accordion>
+              <div *ngFor="let section of data.issueSections">
+                <accordion-group #group [isDisabled]="section.disabled" [ngClass]="{'disabled': section.disabled}">
+                  <div accordion-heading>
+                    <div class="media">
+                      <div class="media-body">
+                        <h4 [ngClass]="{'text-muted': section.disabled}">
+                          {{section.name}}
+                          <br />
+                          <small>({{section.count}} items)</small>
+                        </h4>
+                      </div>
+                      <i class="d-flex ml-3 fa" [ngClass]="{'fa-chevron-down': group?.isOpen, 'fa-chevron-right': !group?.isOpen}"></i>
+
+                    </div>
+                  </div>
+                  <ul *ngFor="let issue of section.issues">
+                    <li>
+                      <a [href]="'https://jira.ingram.com/browse/' + issue.key" target="_blank">
+                      <img [src]="issue.fields.issuetype.iconUrl" alt="">
+                      {{issue.fields.summary}} ({{issue.key}})
+                    </a>
+                    </li>
+                  </ul>
+                </accordion-group>
+              </div>
+            </accordion>
+          </div>
+          <div class="col-sm-6">
+            <div class="card card-primary card-oreo">
+              <div class="card-header">
+                <h4 class="text-center">Quick View</h4>
+              </div>
+              <div class="card-block">
+                <div class="chart-wrapper" *ngIf="chartData && chartLabels">
+                  <canvas baseChart class="chart" [data]="chartData" [labels]="chartLabels" chartType="doughnut" (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

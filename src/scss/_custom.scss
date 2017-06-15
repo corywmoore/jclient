@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+.jumbotron {
+  background-color: #cceeee;
+  color: 554466;
+  margin-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  &.hero {
+    background-image: url('../assets/img/370H.jpg');
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+    background-position: center left;
+    min-height: 350px;
+    margin: -30px -50px 0;
+    .flag {
+      float: right;
+      color: pink;
+      font-weight: 400;
+      font-family: 'Monoton', cursive;
+      font-size: 3em;
+      background-color: white;
+      margin-top: 10%;
+      margin-right: -15px;
+      padding: 5px 30px;
+    }
+  }
+}
+
+accordion-group {
+  &.disabled {
+    .panel > .panel-heading {
+      background-color: #eceff1;
+    }
+  }
+  .panel>.panel-heading {
+    background-color: #eeffde;
+  }
+}
+
+.card .card-oreo {
+  .card-block {
+    background-color: #fff;
+  }
+}
+
+.nav-icon {
+  max-height: 24px;
+  max-width: 24px;
+}

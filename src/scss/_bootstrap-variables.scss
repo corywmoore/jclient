@@ -1,0 +1,63 @@
+// Bootstrap overrides
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+$gray-dark:                 #43353e;//#301500;
+$gray:                      #607d8b;
+$gray-light:                #b0bec5;
+$gray-lighter:              #cfd8dc;
+$gray-lightest:             #eceff1;
+
+$brand-primary:             #9988aa;
+$brand-success:             #98edba;
+$brand-info:                #aabbcc;
+$brand-warning:             #eebb99;
+$brand-danger:              #cc6677;
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-transitions:        true;
+$enable-rounded:            false;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   #e4e5e6;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:            0.875rem;
+
+// Breadcrumbs
+
+$breadcrumb-bg:             #fff;
+
+// Cards
+
+$card-border-color:         $gray-lighter;
+$card-cap-bg:               $gray-lightest;
+
+// Dropdowns
+
+$dropdown-padding-y:        0;
+$dropdown-border-color:     $gray-lighter;
+$dropdown-divider-bg:       $gray-lightest;
+
+// Buttons
+
+$btn-secondary-border:      $gray-light;
+
+// Progress bars
+
+$progress-bg:               $gray-lightest;
+
+// Tables
+
+$table-bg-accent:           $gray-lightest;
+$table-bg-hover:            $gray-lightest;
