@@ -47,3 +47,11 @@ accordion-group {
   max-height: 24px;
   max-width: 24px;
 }
+
+.blink_me {
+  animation: blinker 0.7s linear 5;
+}
+
+@keyframes blinker {
+  99% { opacity: 0; }
+}
