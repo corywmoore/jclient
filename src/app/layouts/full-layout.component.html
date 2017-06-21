@@ -14,12 +14,17 @@
 <div class="app-body">
   <div class="sidebar">
     <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-title">
+          <input #inputFilter type="text" name="filterProjects" placeholder="Search Projects" class="w-100 text-center"  (input)="filterItems(inputFilter.value)" [(ngModel)]="searchterm">
+        </li>
+      </ul>
       <ul class="nav" *ngFor="let project of projectsData, let isFirst = first">
         <li class="nav-title" *ngIf="isFirst">
-          Projects
+          <hr /> Projects
         </li>
         <li class="nav-item">
-          <a routerLinkActive="active" (click)="switchProject(project)" class="nav-link">
+          <a routerLinkActive="active" (click)="switchProject(project)" class="nav-link pointer">
             <div class="media">
               <img [src]="project.icon" class="d-flex mr-2 nav-icon" />
               <div class="media-body">

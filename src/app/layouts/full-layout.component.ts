@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie";
 import { JiraService } from "../services/jira/jira.service";
 import { ProjectModel } from "../services/jira/models/jira-models";
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,8 @@ export class FullLayoutComponent implements OnInit {
   private onTokenUpdate: any;
 
   public projectsData: ProjectModel[];
+  public originalProjectsData: ProjectModel[];
+  public searchterm: string;
 
   public disabled = false;
   public status: { isopen: boolean } = { isopen: false };
@@ -46,9 +49,24 @@ export class FullLayoutComponent implements OnInit {
     if (this.token) {
       this.jiraService.getProjects()
         .subscribe(response => {
-          this.projectsData = response;
+          this.originalProjectsData = response;
+          this.copyData();
         });
     }
+  }
+
+  private copyData() {
+    this.projectsData = Object.assign([], this.originalProjectsData);
+  }
+
+  public filterItems(value: string) {
+    if (!value) {
+      this.copyData();
+    }
+    this.projectsData = Object.assign([], this.originalProjectsData).filter(item =>
+      item.name.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+      item.key.toLowerCase().indexOf(value.toLowerCase()) > -1
+    );
   }
 
   public switchProject(project: ProjectModel) {

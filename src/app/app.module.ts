@@ -1,4 +1,5 @@
 import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -36,7 +37,8 @@ import { UserIdentityGuard } from "./guards/user-identity/user-identity.guard";
     ChartsModule,
     CookieModule.forRoot(),
     HttpModule,
-    JiraModule.forRoot()
+    JiraModule.forRoot(),
+    FormsModule
   ],
   declarations: [
     AppComponent,
